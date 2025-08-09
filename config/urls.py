@@ -21,4 +21,6 @@ from django.contrib.auth import views as auth_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Mindful_Moments.urls')),
+    path('', auth_views.LoginView.as_view(template_name='registration/login.html'), name='home'),
+    
 ]

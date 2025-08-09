@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Login • Mindful Moments+{% endblock %}
+
+{% block content %}
+<section id="hero" class="py-5 text-center section-divider">
+  <div class="container">
+    <h1 class="display-4 fw-bold text-rainbow mb-3">Welcome to Mindful Moments+</h1>
+    <p class="lead text-primary-emphasis">A simple, private mood tracker for everyone.</p>
+    <p class="affirmation fs-5 mt-3 px-2 rounded bg-light shadow">
+      “Every day may not be good, but there is something good in every day.”
+    </p>
+  </div>
+</section>
+
+<div class="container" style="max-width:560px">
+  <div class="petal-center">
+    <h3 class="mb-3">Login</h3>
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="rainbow-btn" type="submit">Login</button>
+    </form>
+    <p class="mt-3">New here? Go ahead and create an account! <a href="{% url 'signup' %}">Create an account</a></p>
+  </div>
+</div>
+{% endblock %}
