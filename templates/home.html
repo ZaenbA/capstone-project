@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome - Mindful Moments+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+        <div class="hero-section py-5">
+            <h1 class="display-4 text-mindful">🧘‍♀️ Welcome to Mindful Moments+</h1>
+            <p class="lead mb-4">
+                Your journey to mindfulness starts here. Track your moods, practice gratitude, 
+                and find peace in every moment.
+            </p>
+            
+            {% if user.is_authenticated %}
+                <div class="alert alert-success">
+                    <h4>Welcome back, {{ user.username }}! 🌟</h4>
+                    <p>Ready to continue your mindful journey?</p>
+                </div>
+                <div class="d-grid gap-2 d-md-block">
+                    <a href="{% url 'moods:list' %}" class="btn btn-primary btn-lg">View My Moods</a>
+                    <a href="{% url 'moods:add' %}" class="btn btn-outline-primary btn-lg">Add New Mood</a>
+                </div>
+            {% else %}
+                <div class="card shadow-mindful">
+                    <div class="card-body">
+                        <h3>Start Your Mindful Journey here</h3>
+                        <p class="text-muted">Join our community and begin tracking your emotional wellness.</p>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a href="{% url 'signup' %}" class="btn btn-primary btn-lg">Register</a>
+                            <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">Login</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">📊 Track Moods</h5>
+                        <p class="card-text">Monitor your emotional patterns and discover insights about your wellbeing.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">🌟 Daily Affirmations</h5>
+                        <p class="card-text">Receive positive affirmations to boost your confidence and mindset.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">🧘‍♀️ Mindful Practice</h5>
+                        <p class="card-text">Develop healthy habits and cultivate inner peace through mindfulness.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
