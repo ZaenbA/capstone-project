@@ -46,7 +46,7 @@ class SignupView(FormView):
         user = form.save()
         messages.success(
             self.request,
-            f"Welcome to Mindful Moments, {user.first_name or user.username}! "
+            f"Welcome to Mindful Moments+, {user.first_name or user.username}! "
             "Your account has been created successfully. Please log in."
         )
         return super().form_valid(form)

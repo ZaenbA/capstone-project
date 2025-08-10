@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard • Mindful Moments+{% endblock %}
+{% block content %}
+<section class="py-4 container">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Your Moods</h2>
+    <a class="btn btn-primary" href="{% url 'moods:add' %}">+ New Entry</a>
+  </div>
+
+  {% if entries %}
+    <ul class="list-unstyled">
+      {% for e in entries %}
+        <li class="mb-3 p-3 card">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <strong>{{ e.get_mood_display }}</strong>
+              <small class="text-muted ms-2">{{ e.created_at|date:"D d M, H:i" }}</small>
+              <small class="text-muted ms-2">Intensity: {{ e.intensity }}/10</small>
+            </div>
+            <div class="d-flex gap-3">
+              <a href="{% url 'moods:detail' e.pk %}">View</a>
+              <a href="{% url 'moods:edit' e.pk %}">Edit</a>
+              <a class="text-danger" href="{% url 'moods:delete' e.pk %}">Delete</a>
+            </div>
+          </div>
+          {% if e.note %}<p class="mt-2 mb-0">{{ e.note|truncatechars:160 }}</p>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No entries yet. <a href="{% url 'moods:add' %}">Add your first mood</a>.</p>
+  {% endif %}
+</section>
+{% endblock %}
