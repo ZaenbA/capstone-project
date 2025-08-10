@@ -1,12 +1,15 @@
 from django.urls import path
-from . import views
+from .views import (
+    MoodEntryList, MoodEntryDetail, MoodEntryCreate, 
+    MoodEntryUpdate, MoodEntryDelete
+)
 
-app_name = 'moods'
+app_name = 'moods'  # important for namespacing
 
 urlpatterns = [
-    path('', views.mood_list, name='list'),
-    path('add/', views.mood_add, name='add'),
-    path('<int:pk>/', views.mood_detail, name='detail'),
-    path('<int:pk>/edit/', views.mood_edit, name='edit'),
-    path('<int:pk>/delete/', views.mood_delete, name='delete'),
+    path('', MoodEntryList.as_view(), name='list'),
+    path('add/', MoodEntryCreate.as_view(), name='add'),  # keeping 'add'
+    path('<int:pk>/', MoodEntryDetail.as_view(), name='detail'),
+    path('<int:pk>/edit/', MoodEntryUpdate.as_view(), name='edit'),
+    path('<int:pk>/delete/', MoodEntryDelete.as_view(), name='delete'),
 ]

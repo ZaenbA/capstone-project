@@ -13,16 +13,39 @@
         </div>
         
         <div class="row">
-            <!-- Placeholder for mood entries -->
-            <div class="col-12">
-                <div class="card shadow-mindful">
-                    <div class="card-body text-center py-5">
-                        <h4 class="text-muted">Your mood tracking journey starts here! 🌟</h4>
-                        <p class="text-muted">Add your first mood entry to begin tracking your emotional wellness.</p>
-                        <a href="{% url 'moods:add' %}" class="btn btn-primary btn-lg">Add My First Mood</a>
+            {% if entries %}
+                {% for entry in entries %}
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow-mindful h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ entry.get_mood_display }}</h5>
+                            <p class="card-text">
+                                <strong>Intensity:</strong> {{ entry.intensity }}/10<br>
+                                <strong>Date:</strong> {{ entry.created_at|date:"M d, Y" }}<br>
+                                {% if entry.note %}
+                                    <strong>Note:</strong> {{ entry.note|truncatechars:50 }}
+                                {% endif %}
+                            </p>
+                            <div class="btn-group" role="group">
+                                <a href="{% url 'moods:detail' entry.pk %}" class="btn btn-sm btn-outline-primary">View</a>
+                                <a href="{% url 'moods:edit' entry.pk %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                                <a href="{% url 'moods:delete' entry.pk %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                {% endfor %}
+            {% else %}
+                <div class="col-12">
+                    <div class="card shadow-mindful">
+                        <div class="card-body text-center py-5">
+                            <h4 class="text-muted">Your mood tracking journey starts here! 🌟</h4>
+                            <p class="text-muted">Add your first mood entry to begin tracking your emotional wellness.</p>
+                            <a href="{% url 'moods:add' %}" class="btn btn-primary btn-lg">Add My First Mood</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>

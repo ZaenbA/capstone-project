@@ -43,10 +43,11 @@ class SignupView(FormView):
     success_url = reverse_lazy('login')
 
     def form_valid(self, form):
-        form.save()
+        user = form.save()
         messages.success(
-            self.request, 
-            "Account created successfully. Please log in."
+            self.request,
+            f"Welcome to Mindful Moments, {user.first_name or user.username}! "
+            "Your account has been created successfully. Please log in."
         )
         return super().form_valid(form)
 
@@ -63,7 +64,7 @@ class MoodEntryDetail(LoginRequiredMixin, DetailView):
 
 class MoodEntryCreate(LoginRequiredMixin, CreateView):
     form_class = MoodEntryForm
-    template_name = 'moods/mood_form.html'
+    template_name = 'moods/mood_add.html'  # Use existing template
     success_url = reverse_lazy('moods:list')
     def form_valid(self, form):
         form.instance.user = self.request.user

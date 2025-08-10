@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Dashboard - Mindful Moments+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  <!-- Welcome Section -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #44bba4, #6fd9c7); color: white;">
+        <div class="card-body text-center py-4">
+          <h1 class="card-title mb-2">
+            <i class="fa-solid fa-heart me-2"></i>
+            Welcome to Your Dashboard, {{ user.first_name|default:user.username }}!
+          </h1>
+          <p class="card-text mb-0">Track your mindful moments and emotional journey</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="row mb-4">
+    <div class="col-md-6 mb-3">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body text-center">
+          <div class="mb-3">
+            <i class="fa-solid fa-plus-circle fa-3x" style="color: #44bba4;"></i>
+          </div>
+          <h5 class="card-title">New Mood Entry</h5>
+          <p class="card-text">Record how you're feeling right now</p>
+          <a href="{% url 'moods:add' %}" class="btn btn-primary">
+            <i class="fa-solid fa-plus me-2"></i>Add Entry
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-6 mb-3">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body text-center">
+          <div class="mb-3">
+            <i class="fa-solid fa-chart-line fa-3x" style="color: #e7bb41;"></i>
+          </div>
+          <h5 class="card-title">View History</h5>
+          <p class="card-text">Browse your past mood entries</p>
+          <a href="{% url 'moods:list' %}" class="btn btn-warning">
+            <i class="fa-solid fa-history me-2"></i>View All
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Recent Entries Section -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-light border-0">
+          <h5 class="mb-0">
+            <i class="fa-solid fa-clock me-2"></i>Recent Mood Entries
+          </h5>
+        </div>
+        <div class="card-body">
+          {% if recent_entries %}
+            <div class="row">
+              {% for entry in recent_entries %}
+                <div class="col-md-6 col-lg-4 mb-3">
+                  <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center mb-2">
+                        <span class="fs-2 me-2">{{ entry.mood }}</span>
+                        <div>
+                          <h6 class="card-title mb-1">{{ entry.get_mood_display }}</h6>
+                          <small class="text-muted">{{ entry.created_at|date:"M d, Y" }}</small>
+                        </div>
+                      </div>
+                      {% if entry.note %}
+                        <p class="card-text small text-muted">{{ entry.note|truncatewords:15 }}</p>
+                      {% endif %}
+                      <div class="progress mb-2" style="height: 6px;">
+                        <div class="progress-bar bg-primary" role="progressbar" 
+                             style="width: {{ entry.intensity }}0%;" 
+                             aria-valuenow="{{ entry.intensity }}" 
+                             aria-valuemin="0" aria-valuemax="10">
+                        </div>
+                      </div>
+                      <small class="text-muted">Intensity: {{ entry.intensity }}/10</small>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="text-center mt-3">
+              <a href="{% url 'moods:list' %}" class="btn btn-outline-primary">
+                View All Entries <i class="fa-solid fa-arrow-right ms-2"></i>
+              </a>
+            </div>
+          {% else %}
+            <div class="text-center py-4">
+              <i class="fa-solid fa-mood-happy fa-3x text-muted mb-3"></i>
+              <h6 class="text-muted">No mood entries yet</h6>
+              <p class="text-muted mb-3">Start your mindfulness journey by recording your first mood!</p>
+              <a href="{% url 'moods:add' %}" class="btn btn-primary">
+                <i class="fa-solid fa-plus me-2"></i>Add Your First Entry
+              </a>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mindfulness Tips -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-light border-0">
+          <h5 class="mb-0">
+            <i class="fa-solid fa-lightbulb me-2"></i>Mindfulness Tip of the Day
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="alert alert-info border-0 mb-0" style="background: linear-gradient(135deg, #e7bb41, #efcd6b);">
+            <i class="fa-solid fa-quote-left me-2"></i>
+            Take a moment to breathe deeply and notice three things you can see, hear, and feel around you. 
+            This simple practice can help ground you in the present moment.
+            <i class="fa-solid fa-quote-right ms-2"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

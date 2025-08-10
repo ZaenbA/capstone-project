@@ -14,9 +14,15 @@
                 <form method="post">
                     {% csrf_token %}
                     
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            {{ form.errors }}
+                        </div>
+                    {% endif %}
+                    
                     <div class="mb-3">
-                        <label for="mood" class="form-label">Current Mood</label>
-                        <select class="form-select" id="mood" name="mood" required onchange="toggleOtherMood(this)">
+                        <label for="{{ form.mood.id_for_label }}" class="form-label">Current Mood</label>
+                        <select class="form-select" id="{{ form.mood.id_for_label }}" name="mood" required onchange="toggleOtherMood(this)">
                             <option value="">How do you feel today?</option>
                             <option value="joy">😊 Joyful</option>
                             <option value="peaceful">😌 Peaceful</option>
@@ -29,37 +35,47 @@
                             <option value="tired">😴 Tired</option>
                             <option value="other">Other (please specify below)</option>
                         </select>
-                        <input type="text" class="form-control mt-2" id="other-mood" name="other_mood" placeholder="Describe your mood..." style="display:none;">
-
-                        <script>
-                        function toggleOtherMood(select) {
-                            var otherInput = document.getElementById('other-mood');
-                            if (select.value === 'other') {
-                                otherInput.style.display = 'block';
-                                otherInput.required = true;
-                            } else {
-                                otherInput.style.display = 'none';
-                                otherInput.required = false;
-                                otherInput.value = '';
-                            }
-                        }
-                        </script>
                     </div>
                     
                     <div class="mb-3">
                         <label for="intensity" class="form-label">Intensity (1-10)</label>
-                        <input type="range" class="form-range" id="intensity" name="intensity" min="1" max="10" value="5">
+                        <input type="range" class="form-range" id="intensity" name="intensity" min="1" max="10" value="5" oninput="updateIntensityValue(this.value)">
                         <div class="d-flex justify-content-between">
                             <small class="text-muted">1 - Low</small>
+                            <small class="text-muted"><span id="intensity-value">5</span>/10</small>
                             <small class="text-muted">10 - High</small>
                         </div>
                     </div>
                     
+                    <div class="mb-3" id="other-mood-container" style="display:none;">
+                        <label for="other-mood" class="form-label">Other Mood Description</label>
+                        <input type="text" class="form-control" id="other-mood" name="other_mood" placeholder="Describe your mood here">
+                    </div>
+                    
                     <div class="mb-3">
-                        <label for="notes" class="form-label">Notes (Optional)</label>
-                        <textarea class="form-control" id="notes" name="notes" rows="3" 
+                        <label for="{{ form.note.id_for_label }}" class="form-label">Notes (Optional)</label>
+                        <textarea class="form-control" id="{{ form.note.id_for_label }}" name="note" rows="3" 
                                   placeholder="What triggered this feeling? Any thoughts to remember..."></textarea>
                     </div>
+
+                    <script>
+                    function toggleOtherMood(select) {
+                        var otherContainer = document.getElementById('other-mood-container');
+                        var otherInput = document.getElementById('other-mood');
+                        if (select.value === 'other') {
+                            otherContainer.style.display = 'block';
+                            otherInput.required = true;
+                        } else {
+                            otherContainer.style.display = 'none';
+                            otherInput.required = false;
+                            otherInput.value = '';
+                        }
+                    }
+                    
+                    function updateIntensityValue(value) {
+                        document.getElementById('intensity-value').textContent = value;
+                    }
+                    </script>
                     
                     <div class="d-grid gap-2">
                         <button type="submit" class="btn btn-primary btn-lg">Save My Mood</button>

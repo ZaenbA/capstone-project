@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Mood - Mindful Moments+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6 mx-auto">
+        <div class="card shadow-mindful">
+            <div class="card-header text-center">
+                <h3 class="text-mindful">Update Your Mood 🌈</h3>
+                <p class="text-muted">Modify your mood entry</p>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            {{ form.errors }}
+                        </div>
+                    {% endif %}
+                    
+                    <div class="mb-3">
+                        <label for="mood" class="form-label">Current Mood</label>
+                        <select class="form-select" id="mood" name="mood" required onchange="toggleOtherMood(this)">
+                            <option value="">How do you feel today?</option>
+                            <option value="joy" {% if object.mood == 'joy' %}selected{% endif %}>😊 Joyful</option>
+                            <option value="peaceful" {% if object.mood == 'peaceful' %}selected{% endif %}>😌 Peaceful</option>
+                            <option value="excited" {% if object.mood == 'excited' %}selected{% endif %}>🤗 Excited</option>
+                            <option value="content" {% if object.mood == 'content' %}selected{% endif %}>😊 Content</option>
+                            <option value="neutral" {% if object.mood == 'neutral' %}selected{% endif %}>😐 Neutral</option>
+                            <option value="anxious" {% if object.mood == 'anxious' %}selected{% endif %}>😰 Anxious</option>
+                            <option value="sad" {% if object.mood == 'sad' %}selected{% endif %}>😢 Sad</option>
+                            <option value="frustrated" {% if object.mood == 'frustrated' %}selected{% endif %}>😤 Frustrated</option>
+                            <option value="tired" {% if object.mood == 'tired' %}selected{% endif %}>😴 Tired</option>
+                            <option value="other" {% if object.mood == 'other' %}selected{% endif %}>Other (please specify below)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="intensity" class="form-label">Intensity (1-10)</label>
+                        <input type="range" class="form-range" id="intensity" name="intensity" min="1" max="10" value="{{ object.intensity }}" oninput="updateIntensityValue(this.value)">
+                        <div class="d-flex justify-content-between">
+                            <small class="text-muted">1 - Low</small>
+                            <small class="text-muted"><span id="intensity-value">{{ object.intensity }}</span>/10</small>
+                            <small class="text-muted">10 - High</small>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3" id="other-mood-container" style="{% if object.mood != 'other' %}display:none;{% endif %}">
+                        <label for="other-mood" class="form-label">Other Mood Description</label>
+                        <input type="text" class="form-control" id="other-mood" name="other_mood" value="{{ object.other_mood }}" placeholder="Describe your mood here">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="note" class="form-label">Notes (Optional)</label>
+                        <textarea class="form-control" id="note" name="note" rows="3" 
+                                  placeholder="What triggered this feeling? Any thoughts to remember...">{{ object.note }}</textarea>
+                    </div>
+
+                    <script>
+                    function toggleOtherMood(select) {
+                        var otherContainer = document.getElementById('other-mood-container');
+                        var otherInput = document.getElementById('other-mood');
+                        if (select.value === 'other') {
+                            otherContainer.style.display = 'block';
+                            otherInput.required = true;
+                        } else {
+                            otherContainer.style.display = 'none';
+                            otherInput.required = false;
+                            otherInput.value = '';
+                        }
+                    }
+                    
+                    function updateIntensityValue(value) {
+                        document.getElementById('intensity-value').textContent = value;
+                    }
+                    
+                    // Initialize on page load
+                    document.addEventListener('DOMContentLoaded', function() {
+                        toggleOtherMood(document.getElementById('mood'));
+                    });
+                    </script>
+                    
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-primary btn-lg">Update My Mood</button>
+                        <a href="{% url 'moods:detail' object.pk %}" class="btn btn-outline-secondary">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

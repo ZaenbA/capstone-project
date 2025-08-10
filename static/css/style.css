@@ -432,3 +432,47 @@ main {
     min-width: 0 !important;
     max-width: 99vw !important;
   }
+
+/* Message styling for better UX */
+.messages .alert {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  animation: slideInDown 0.5s ease-out;
+}
+
+.alert-success {
+  background: linear-gradient(135deg, #44bba4, #6fd9c7);
+  color: white;
+  border-left: 4px solid #339082;
+}
+
+.alert-info {
+  background: linear-gradient(135deg, #e7bb41, #efcd6b);
+  color: #393e41;
+  border-left: 4px solid #d9a632;
+}
+
+.alert-warning {
+  background: linear-gradient(135deg, #f0ad4e, #f7c373);
+  color: #393e41;
+  border-left: 4px solid #ec971f;
+}
+
+.alert-error,
+.alert-danger {
+  background: linear-gradient(135deg, #d9534f, #e67e80);
+  color: white;
+  border-left: 4px solid #c9302c;
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

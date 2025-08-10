@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Mood Details - Mindful Moments+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-8 mx-auto">
+        <div class="card shadow-mindful">
+            <div class="card-header">
+                <h3 class="text-mindful">{{ object.get_mood_display }} Entry</h3>
+                <small class="text-muted">{{ object.created_at|date:"F d, Y \a\t g:i A" }}</small>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Mood:</strong> {{ object.get_mood_display }}</p>
+                        <p><strong>Intensity:</strong> {{ object.intensity }}/10</p>
+                        {% if object.other_mood %}
+                            <p><strong>Custom Description:</strong> {{ object.other_mood }}</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Created:</strong> {{ object.created_at|date:"M d, Y g:i A" }}</p>
+                        {% if object.updated_at != object.created_at %}
+                            <p><strong>Last Updated:</strong> {{ object.updated_at|date:"M d, Y g:i A" }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                {% if object.note %}
+                    <div class="mt-3">
+                        <h5>Notes:</h5>
+                        <p class="border-start border-3 border-primary ps-3">{{ object.note|linebreaks }}</p>
+                    </div>
+                {% endif %}
+                
+                <div class="mt-4">
+                    <div class="btn-group" role="group">
+                        <a href="{% url 'moods:edit' object.pk %}" class="btn btn-primary">Edit Entry</a>
+                        <a href="{% url 'moods:delete' object.pk %}" class="btn btn-outline-danger">Delete Entry</a>
+                        <a href="{% url 'moods:list' %}" class="btn btn-outline-secondary">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
