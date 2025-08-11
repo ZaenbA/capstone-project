@@ -161,7 +161,23 @@ STATICFILES_DIRS = [
 ]
 
 # WhiteNoise configuration for static files in production
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Use basic storage instead of compressed for debugging
+if DEBUG:
+    STATICFILES_STORAGE = (
+        'django.contrib.staticfiles.storage.StaticFilesStorage'
+    )
+else:
+    STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
+
+# Additional production settings
+if not DEBUG:
+    # Security settings for production
+    SECURE_BROWSER_XSS_FILTER = True
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+    X_FRAME_OPTIONS = 'DENY'
+    
+    # Allow unsafe inline styles for CSS (needed for some styling)
+    SECURE_CONTENT_SECURITY_POLICY = None
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
