@@ -2,6 +2,8 @@ from django.contrib import admin
 from .models import MoodEntry
 
 # Register your models here.
+
+
 @admin.register(MoodEntry)
 class MoodEntryAdmin(admin.ModelAdmin):
     list_display = ('user', 'mood', 'intensity', 'created_at')

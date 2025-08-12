@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (
-    MoodEntryList, MoodEntryDetail, MoodEntryCreate, 
+    MoodEntryList, MoodEntryDetail, MoodEntryCreate,
     MoodEntryUpdate, MoodEntryDelete
 )
 
@@ -13,3 +13,4 @@ urlpatterns = [
     path('<int:pk>/edit/', MoodEntryUpdate.as_view(), name='edit'),
     path('<int:pk>/delete/', MoodEntryDelete.as_view(), name='delete'),
 ]
+
