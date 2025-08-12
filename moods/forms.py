@@ -5,10 +5,8 @@ from .models import MoodEntry
 
 
 class SignupForm(UserCreationForm):
-    """
-    Extended user registration form that includes email field.
-    Inherits from Django's built-in UserCreationForm and adds email
-    requirement.
+    """This is a custom user registration form that also includes email field. 
+    It inherits from Django's built in UserCreation Form as well as adding email requirements so that users can be updated if needed.
     """
     email = forms.EmailField(required=True)
     
@@ -35,8 +33,8 @@ class SignupForm(UserCreationForm):
 
 class MoodEntryForm(forms.ModelForm):
     """
-    Form for creating and editing mood entries.
-    Allows users to record their mood, intensity level, and optional notes.
+    This is a form for creating and editing mood entries for registered users.
+    Allows users to record their mood, intensity level using a scale between 1 - 10, and optional notes to help them track more insights about their wellbeing.
     """
     class Meta:
         model = MoodEntry

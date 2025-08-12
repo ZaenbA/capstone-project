@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # Environment file import for local development
-# This file contains sensitive data and should not be committed to git
+# This file contains sensitive data DO NOT commit to git!
 if os.path.isfile('env.py'):
     import env
 
