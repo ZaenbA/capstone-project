@@ -83,34 +83,42 @@ This approach allowed me to:
 - Maintain flexibility to add improvements without losing sight of core functionality.
 
 ## **Testing and Validation**
-Thorough testing was carried out throughout development to ensure Mindful Moments+ is functional, accessible, and responsive.
-Manual Testing
-I tested all user stories to confirm they met their acceptance criteria:
-Registration – New users can successfully register and are redirected to the login page with a success message.
+During the process of making Mindful Moments website, testing and validating the code was done throughout the timeframe of the deadline. In it, I had to make sure I completed regular debugging which was done by either the live preview on VS Code and mostly on the Chrome Browser which had great Dev Tools to support in this matter. This ensured that my application was functional, accessible and responsive.
+I manually tested all user stories to confirm they met their acceptance criteria:
+- Registration – New users can successfully register and are redirected to the login page with a success message.
+- Login – Registered users can log in securely and see their dashboard.
+- Logout – Users can log out successfully and see a confirmation message.
+- Add Mood Entry – Logged-in users can create a mood entry with emoji/text and optional notes.
+- Edit Mood Entry – Users can edit their own mood entries.
+- Delete Mood Entry – Users can delete their own entries and see a confirmation.
+- Feedback Messages – Success messages appear for creating, editing, and deleting moods.
 
 
-Login – Registered users can log in securely and see their dashboard.
+**W3Schools HTML Validator:**
+
+![W3C Validator](static/images/w3c.png)
+![Nu HTML Checker](static/images/null-html-checker.png)
 
 
-Logout – Users can log out successfully and see a confirmation message.
+**Lighthouse:**
 
+![Desktop](static/images/lighthouse.png)
+![Mobile](static/images/lighthousem.png)
 
-Add Mood Entry – Logged-in users can create a mood entry with emoji/text and optional notes.
+**Code Institute Pep8 Checker**
+- **Admin.py:**
+![Admin.py](static/images/Admin1.png)
+- **apps.py:**
+![Apps.py](static/images/apps1.png)
+- **Forms.py:**
+![Forms.py](static/images/forms1.png)
+- **Models.py:**
+![Models.py](static/images/models1.png)
+- **URLS.py:**
+![URLS.py](static/images/urls1.png)
+- **Views.py:**
+![Views.py](static/images/views1.png)
 
-
-Edit Mood Entry – Users can edit their own mood entries.
-
-
-Delete Mood Entry – Users can delete their own entries and see a confirmation.
-
-
-Feedback Messages – Success messages appear for creating, editing, and deleting moods.
-
-
-Breathing Exercise – Loads correctly on all devices.
-
-
-Mindfulness Tips – Displays a random tip on each refresh.
 
 
 Device & Browser Testing
