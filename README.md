@@ -6,7 +6,7 @@ This application is a Django-based mood tracker that was designed to help users 
 --
 
 ## Visit the live application: [Mindful Moments+](https://mindful-moments101-4d3848fc02ce.herokuapp.com/)
---
+
 I created Mindful Moments+ to reach the goal of providing users with a simple, calming, and accessible way to track their moods, practice mindfulness, and build healthy habits wherever they are.The design of my project focuses on ease navigation, visual clarity, and a serene colour palette to create a welcoming atmosphere for the user.
 I used the MoSCoW prioritisation method to organise my user stories and ensure essential features were developed first. My GitHub Project Board is public and can be viewed here: Mindful Moments+ Project Board
 ---
@@ -34,43 +34,29 @@ Could Have:
 - As a user, I want to change the background theme so that I can personalise the app.
 - As a user, I want to share a message on social media so that I can inspire others.
 ---
-Features
+# **Features**
 Mindful Moments+ offers a calm, simple, and engaging way for users to track their moods and practice mindfulness.
-Current Features
-Home Page – Welcomes users with a calming design, short introduction, and easy navigation.
 
+Current Features:
+- Home Page – Welcomes users with a calming design, short introduction, and easy navigation.
+![Home-page](/static/images/homepage-when-logged-in.png)
+- Register Page – Allows new users to create an account to save and manage mood entries.
+![Register](/static/images/signup-form.png)
+- Login Page – Secure login for returning users.
+![Login Page](/static/images/login-form.png)
+- Mood Tracker Dashboard – Displays all mood entries in date order for logged-in users.
+![Mood Tracker Dashboard](/static/images/dashboard.png)
+- Add Mood Entry – Users can record their mood using emoji or text, with an optional note.
+![Add Mood Entry](/static/images/mood-entry.png)
+- Edit Mood Entry – Allows users to update or correct an existing entry.
+- Delete Mood Entry – Removes a mood entry from the user’s diary.
+![Delete Mood Entry](/static/images/delete-warning.png)
+- Feedback Messages – Shows confirmation messages when entries are created, edited, or deleted.
+![Logged in Message](/static/images/logged-in-messge.png)
+![Logged in Message](/static/images/logged-out-messge.png)
+- Responsive Design – Fully functional on desktop, tablet, and mobile.
 
-Register Page – Allows new users to create an account to save and manage mood entries.
-
-
-Login Page – Secure login for returning users.
-
-
-Mood Tracker Dashboard – Displays all mood entries in date order for logged-in users.
-
-
-Add Mood Entry – Users can record their mood using emoji or text, with an optional note.
-
-
-Edit Mood Entry – Allows users to update or correct an existing entry.
-
-
-Delete Mood Entry – Removes a mood entry from the user’s diary.
-
-
-Feedback Messages – Shows confirmation messages when entries are created, edited, or deleted.
-
-
-Breathing Exercise (Should Have) – Offers a short guided breathing activity to reduce stress.
-
-
-Mindfulness Tips (Should Have) – Displays a random tip each time the page loads.
-
-
-Responsive Design – Fully functional on desktop, tablet, and mobile.
-
-
-Future Features
+# Future Features
 Option to add and turn background music on or off.
 
 
