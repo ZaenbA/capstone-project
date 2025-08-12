@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Sign Up - Mindful Moments{% endblock %}
+{% block title %}Sign Up • Mindful Moments+{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="text-center">🌟 Join Mindful Moments+</h3>
-                <p class="text-center text-muted">Start your journey to mindfulness, in a safe and secure zone.</p>
-            </div>
-            <div class="card-body">
+<section id="hero" class="py-5 text-center section-divider">
+  <div class="container">
+    <h1 class="display-4 fw-bold text-rainbow mb-3">Welcome to Mindful Moments+</h1>
+    <p class="lead text-primary-emphasis">A simple, private mood tracker for everyone.</p>
+    <p class="affirmation fs-5 mt-3 px-2 rounded bg-light shadow">
+      "Every day may not be good, but there is something good in every day."
+    </p>
+  </div>
+</section>
+
+<div class="container" style="max-width:560px">
+  <div class="petal-center">
+    <h3 class="mb-3">🌟 Join Mindful Moments+</h3>
+    <p class="text-center text-muted mb-4">Start your journey to mindfulness, in a safe and secure zone.</p>
                 {% if form.errors %}
                     <div class="alert alert-danger">
                         <strong>Please correct the errors below:</strong>
@@ -57,7 +64,7 @@
                     </div>
 
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-primary">Create Account</button>
+                        <button class="rainbow-btn" type="submit">Create Account</button>
                     </div>
                 </form>
 
