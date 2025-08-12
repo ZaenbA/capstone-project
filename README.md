@@ -3,13 +3,13 @@
 ## **Project Overview**
 
 This application is a Django-based mood tracker that was designed to help users monitor their emotional wellbeing through mindful reflection and mood logging whereever they are.
---
+
 
 ## Visit the live application: [Mindful Moments+](https://mindful-moments101-4d3848fc02ce.herokuapp.com/)
 
 I created Mindful Moments+ to reach the goal of providing users with a simple, calming, and accessible way to track their moods, practice mindfulness, and build healthy habits wherever they are.The design of my project focuses on ease navigation, visual clarity, and a serene colour palette to create a welcoming atmosphere for the user.
 I used the MoSCoW prioritisation method to organise my user stories and ensure essential features were developed first. My GitHub Project Board is public and can be viewed here: Mindful Moments+ Project Board
----
+
 
 # **User Stories**
 
@@ -57,47 +57,32 @@ Current Features:
 - Responsive Design – Fully functional on desktop, tablet, and mobile.
 
 # Future Features
-Option to add and turn background music on or off.
+- Option to add and turn background music on or off.
+- Ability to save/bookmark calming tips.
+- Change the background theme for a personalised feel.
+- Social sharing to post positive messages on social media.
 
-
-Ability to save/bookmark calming tips.
-
-
-Change the background theme for a personalised feel.
-
-
-Social sharing to post positive messages on social media.
-
-Agile Development
-I followed an Agile approach throughout the development of Mindful Moments+, using the MoSCoW prioritisation method to ensure essential features were delivered first.
-A public GitHub Project Board was used to manage user stories, tasks, and track progress. The board was divided into three columns:
-Backlog – All planned features and ideas.
-To do - Features to start developing.
-In Progress – Features currently being developed.
-Done – Completed and tested features.
+# **Agile Development**
+I followed an Agile approach throughout the development of Mindful Moments+, using the **MoSCoW prioritisation method** to ensure essential features were delivered first.
+A public **GitHub Project Board** was used to manage user stories, tasks, and track progress. The board was divided into 4 columns:
+- Backlog – All planned features and ideas.
+- To do - Features to start developing.
+- In Progress – Features currently being developed.
+- Done – Completed and tested features.
 
 
 Each card on the board contained a user story with clear acceptance criteria and was labelled as:
-Must Have – Important features that are essential for the application’s purpose.
-
-
-Should Have – Important features that improve the experience but are not critical.
-
-
-Could Have – Optional enhancements that would be nice to include if time allowed.
-
+- Must Have – Important features that are essential for the application’s purpose.
+- Should Have – Important features that improve the experience but are not critical.
+- Could Have – Optional enhancements that would be nice to include if time allowed.
 
 The board can be viewed here: Mindful Moments+ Project Board
 This approach allowed me to:
-Focus on delivering working features early.
+- Focus on delivering working features early.
+- Easily track progress and adjust priorities.
+- Maintain flexibility to add improvements without losing sight of core functionality.
 
-
-Easily track progress and adjust priorities.
-
-
-Maintain flexibility to add improvements without losing sight of core functionality.
-
-Testing
+## **Testing and Validation**
 Thorough testing was carried out throughout development to ensure Mindful Moments+ is functional, accessible, and responsive.
 Manual Testing
 I tested all user stories to confirm they met their acceptance criteria:
