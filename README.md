@@ -10,7 +10,15 @@ This application is a Django-based mood tracker that was designed to help users 
 I created Mindful Moments+ to reach the goal of providing users with a simple, calming, and accessible way to track their moods, practice mindfulness, and build healthy habits wherever they are.The design of my project focuses on ease navigation, visual clarity, and a serene colour palette to create a welcoming atmosphere for the user.
 I used the MoSCoW prioritisation method to organise my user stories and ensure essential features were developed first. My GitHub Project Board is public and can be viewed here: Mindful Moments+ Project Board
 
-
+# **Table of Content**
+- [User Stories](#user-stories)
+- [UX Design](#ux-design)
+- [Features](#features)
+- [Agile Development](#agile-development)
+- [Testing and Validation](#testing-and-validation)
+- [Deployment](#deployment)
+- [AI Implementation](#ai-implementation)
+- [Credits](#credits)
 # **User Stories**
 
 Must Have:
@@ -105,7 +113,7 @@ This approach allowed me to:
 - Easily track progress and adjust priorities.
 - Maintain flexibility to add improvements without losing sight of core functionality.
 
-## **Testing and Validation**
+# **Testing and Validation**
 During the process of making Mindful Moments website, testing and validating the code was done throughout the timeframe of the deadline. In it, I had to make sure I completed regular debugging which was done by either the live preview on VS Code and mostly on the Chrome Browser which had great Dev Tools to support in this matter. This ensured that my application was functional, accessible and responsive.
 I manually tested all user stories to confirm they met their acceptance criteria:
 - Registration – New users can successfully register and are redirected to the login page with a success message.
@@ -116,7 +124,7 @@ I manually tested all user stories to confirm they met their acceptance criteria
 - Delete Mood Entry – Users can delete their own entries and see a confirmation.
 - Feedback Messages – Success messages appear for creating, editing, and deleting moods.
 
-Device & Browser Testing
+**Device & Browser Testing**
 The site was tested on the following browsers and devices:
 Browsers: Chrome, Firefox,
  Devices:
