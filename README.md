@@ -93,18 +93,24 @@ I manually tested all user stories to confirm they met their acceptance criteria
 - Delete Mood Entry – Users can delete their own entries and see a confirmation.
 - Feedback Messages – Success messages appear for creating, editing, and deleting moods.
 
+Device & Browser Testing
+The site was tested on the following browsers and devices:
+Browsers: Chrome, Firefox,
+ Devices:
+- Windows 11 laptop
+- MacBook Air
+- iPhone 14 Pro Max
+- Samsung Galaxy S20 Ultra
+- iPad Air
 
-**W3Schools HTML Validator:**
-
-![W3C Validator](static/images/w3c.png)
+The site remained fully responsive across all devices.
+- All HTML templates passed W3C HTML validation with no errors.
 ![Nu HTML Checker](static/images/null-html-checker.png)
 
+- All CSS stylesheets passed through W3C Jigsaw CSS validation with no errors.
+![W3C Validation](static/images/w3c.png)
 
-**Lighthouse:**
-
-![Desktop](static/images/lighthouse.png)
-![Mobile](static/images/lighthousem.png)
-
+- All Python Python code was checked with PEP8 Online and adjusted to meet PEP8 standards (such as, removing trailing whitespace, adding blank lines where required).
 **Code Institute Pep8 Checker**
 - **Admin.py:**
 ![Admin.py](static/images/Admin1.png)
@@ -119,48 +125,21 @@ I manually tested all user stories to confirm they met their acceptance criteria
 - **Views.py:**
 ![Views.py](static/images/views1.png)
 
-
-
-Device & Browser Testing
-The site was tested on the following browsers and devices:
-Browsers: Chrome, Firefox,
- Devices:
-Windows 11 laptop
-
-
-MacBook Air
-
-
-iPhone 14 Pro Max
-
-
-Samsung Galaxy S20 Ultra
-
-
-iPad Air
-
-
-The site remained fully responsive across all devices.
-Validator Testing
-HTML – All templates passed W3C HTML validation with no errors.
-(screenshot)
-
-
-CSS – Stylesheets passed through W3C Jigsaw CSS validation with no errors.
-(screenshot)
-
-
-Python – All Python code was checked with PEP8 Online and adjusted to meet PEP8 standards (e.g., removing trailing whitespace, adding blank lines where required).
-(screenshot)
-Lighthouse Testing
-Lighthouse was used in Chrome DevTools to test Performance, Accessibility, Best Practices, and SEO. (screenshot)
+**Lighthouse Testing**
+Lighthouse was used in Chrome DevTools to test my project.
 These results confirm the site is fast, accessible, and follows modern web standards.
+![Desktop](static/images/lighthouse.png)
+![Mobile](static/images/lighthousem.png)
 
-Bugs & Fixes
-Static Files Not Loading on Heroku – Fixed by running python manage.py collectstatic and updating settings.py for static file handling.
-(Insert screenshots of key testing steps, Lighthouse report, and responsive views here)
+**Bugs & Fixes**
+Static Files Not Loading on Heroku: it was fixed by running *python manage.py collectstatic* and updating *settings.py* for static file handling.
 
-Deployment
+
+
+
+
+
+# **Deployment**
 The Mindful Moments+ project was deployed to Heroku using the following steps:
 1. Create Heroku App
 Log in to Heroku and click New → Create New App.
