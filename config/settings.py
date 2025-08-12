@@ -21,13 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-import os
-
+# Environment file import for local development
+# This file contains sensitive data and should not be committed to git
 if os.path.isfile('env.py'):
     import env
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# In production, this should be set via environment variables
 SECRET_KEY = os.environ.get(
     'SECRET_KEY',
     'django-insecure-fallback-key-change-in-production'
@@ -92,11 +92,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# Database configuration with environment-based selection
+# Priority: DATABASE_URL (Heroku) > PostgreSQL (manual) > SQLite (development)
 if 'DATABASE_URL' in os.environ:
+    # Production: Use Heroku PostgreSQL via DATABASE_URL
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 elif 'USE_POSTGRESQL' in os.environ:
+    # Development: Use PostgreSQL with individual environment variables
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
@@ -111,6 +115,7 @@ elif 'USE_POSTGRESQL' in os.environ:
         }
     }
 else:
+    # Fallback: Use SQLite for local development
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
