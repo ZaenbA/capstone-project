@@ -1,10 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-      <a class="navbar-brand fw-bold" href="{% url 'home' %}">
-        <img src="{% static 'images/logo2.png' %}" alt="Mindful Moments+ Logo" width="32" height="32" class="me-2">
-        Mindful Moments+
-      </a>d>
+<head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,17 +19,16 @@
   <!-- Bootstrap for styling -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Favicons - uncomment when you add favicon files to static/favicons/
-  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicons/apple-touch-icon.png' %}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicons/favicon-32x32.png' %}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicons/favicon-16x16.png' %}">
-  <link rel="manifest" href="{% static 'favicons/site.webmanifest' %}">
-  -->
-
   <!-- CSS code -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&family=Lato:wght@300;400;700;900&display=swap');
+    
+    /* Ensure navbar logo displays correctly */
+    .navbar-brand img {
+      display: inline-block;
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body>
