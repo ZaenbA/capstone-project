@@ -2,62 +2,38 @@
 ![Mindful Moments Banneer](static/images/banner.png)
 ## **Project Overview**
 
-This application is a Django-based mood tracker that was designed to help users monitor their emotional wellbeing through mindful reflection and mood logging.
+This application is a Django-based mood tracker that was designed to help users monitor their emotional wellbeing through mindful reflection and mood logging whereever they are.
 --
-## Live Demo 🌐
 
-Visit the live application: [Mindful Moments+](https://mindful-moments101-4d3848fc02ce.herokuapp.com/)
+## Visit the live application: [Mindful Moments+](https://mindful-moments101-4d3848fc02ce.herokuapp.com/)
 --
 I created Mindful Moments+ to reach the goal of providing users with a simple, calming, and accessible way to track their moods, practice mindfulness, and build healthy habits wherever they are.The design of my project focuses on ease navigation, visual clarity, and a serene colour palette to create a welcoming atmosphere for the user.
 I used the MoSCoW prioritisation method to organise my user stories and ensure essential features were developed first. My GitHub Project Board is public and can be viewed here: Mindful Moments+ Project Board
-User Stories
+---
+
+# **User Stories**
+
 Must Have:
-As a user, I want to access the register form so that I can create an account.
-
-
-As a user, I want to access the login form so that I can log in securely.
-
-
-As a user, I want to add a mood entry with emoji or text so that I can record how I feel.
-
-
-As a user, I want to view my mood diary so that I can track my emotional patterns.
-
-
-As a user, I want to edit my mood entry so that I can correct or update my record.
-
-
-As a user, I want to delete my mood entry so that I can remove it if needed.
-
-
-As a user, I want to see feedback after submitting my mood so that I feel acknowledged.
-
+- As a user, I want to access the register form so that I can create an account.
+- As a user, I want to access the login form so that I can log in securely.
+- As a user, I want to add a mood entry with emoji or text so that I can record how I feel.
+- As a user, I want to view my mood diary so that I can track my emotional patterns.
+- As a user, I want to edit my mood entry so that I can correct or update my record.
+- As a user, I want to delete my mood entry so that I can remove it if needed.
+- As a user, I want to see feedback after submitting my mood so that I feel acknowledged.
 
 Should Have:
-As a user, I want to read mindfulness articles or tips so that I can learn techniques for well-being.
-
-
-As a user, I want to access a breathing exercise so that I can calm myself during stress.
-
-
-As a user, I want to know when I’m logged in so that I can manage my account securely.
-
-
-As a user, I want to see a positive message box so that I feel encouraged.
-
+- As a user, I want to read mindfulness articles or tips so that I can learn techniques for well-being.
+- As a user, I want to access a breathing exercise so that I can calm myself during stress.
+- As a user, I want to know when I’m logged in so that I can manage my account securely.
+- As a user, I want to see a positive message box so that I feel encouraged.
 
 Could Have:
-As a user, I want to turn music on/off so that I can choose my preferred experience.
-
-
-As a user, I want to save/bookmark a calming tip so that I can revisit it later.
-
-
-As a user, I want to change the background theme so that I can personalise the app.
-
-
-As a user, I want to share a message on social media so that I can inspire others.
-
+- As a user, I want to turn music on/off so that I can choose my preferred experience.
+- As a user, I want to save/bookmark a calming tip so that I can revisit it later.
+- As a user, I want to change the background theme so that I can personalise the app.
+- As a user, I want to share a message on social media so that I can inspire others.
+---
 Features
 Mindful Moments+ offers a calm, simple, and engaging way for users to track their moods and practice mindfulness.
 Current Features
