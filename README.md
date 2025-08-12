@@ -33,6 +33,29 @@ Could Have:
 - As a user, I want to save/bookmark a calming tip so that I can revisit it later.
 - As a user, I want to change the background theme so that I can personalise the app.
 - As a user, I want to share a message on social media so that I can inspire others.
+
+# **UX Design**
+
+**Colour Design**
+- Colours: Used the palette from the original Mindful Moments project for consistency to keep the calming shades theme.
+- Accessibility: High-contrast text, alt text for images, and responsive layout for multiple devices.
+![colours](static/images/colors.png)
+
+
+**Wireframes** 
+
+Wireframes were created before development to map out the structure of:
+
+    Homepage – welcoming message, access to dashboard, and quick actions
+
+    Dashboard – mood tracking history and add mood button
+
+    Mood Entry Page – simple form to log moods with optional notes
+![Wireframes](static/images/wireframe-d.png)
+![Wireframes](static/images/wireframe-m.png)
+
+
+
 ---
 # **Features**
 Mindful Moments+ offers a calm, simple, and engaging way for users to track their moods and practice mindfulness.
@@ -64,7 +87,7 @@ Current Features:
 
 # **Agile Development**
 I followed an Agile approach throughout the development of Mindful Moments+, using the **MoSCoW prioritisation method** to ensure essential features were delivered first.
-A public **GitHub Project Board** was used to manage user stories, tasks, and track progress. The board was divided into 4 columns:
+A public [Mindful Moments+ GitHub Project Board](https://github.com/users/ZaenbA/projects/5) was used to manage user stories, tasks, and track progress. The board was divided into 4 columns:
 - Backlog – All planned features and ideas.
 - To do - Features to start developing.
 - In Progress – Features currently being developed.
@@ -135,117 +158,58 @@ These results confirm the site is fast, accessible, and follows modern web stand
 Static Files Not Loading on Heroku: it was fixed by running *python manage.py collectstatic* and updating *settings.py* for static file handling.
 
 
-
-
-
-
 # **Deployment**
 The Mindful Moments+ project was deployed to Heroku using the following steps:
 1. Create Heroku App
-Log in to Heroku and click New → Create New App.
-
-
-Choose a unique app name and set the region to Europe.
+- Log in to Heroku and click New → Create New App.
+- Choose a unique app name and set the region to Europe.
 
 
 2. Prepare Django for Deployment
 Install gunicorn and dj-database-url for production:
-
-
-
-Freeze requirements:
-pip freeze > requirements.txt
-Create a Procfile with:
-web: gunicorn mindful_moments.wsgi
-Update settings.py:
-Set DEBUG = False for production.
-
-
-Add the Heroku app URL to ALLOWED_HOSTS.
-
-
-Configure static file handling with whitenoise.
-
+- Freeze requirements:
+         *pip freeze > requirements.txt*
+- Create a Procfile with:
+         *web: gunicorn mindful_moments.wsgi*
+- Update settings.py:
+*Set DEBUG = False for production.*
+Add the Heroku app URL to *ALLOWED_HOSTS*.
+Configure static file handling with *whitenoise*.
 
 3. Push to GitHub
 Add, commit, and push all changes to your GitHub repository.
 
-
 4. Connect Heroku to GitHub
-In the Heroku dashboard, go to the Deploy tab.
-
-
-Choose GitHub as the deployment method.
-
-
-Search for your repository and connect it.
-
+- In the Heroku dashboard, go to the Deploy tab.
+- Choose GitHub as the deployment method.
+- Search for your repository and connect it.
 
 5. Configure Environment Variables
 In the Settings → Config Vars section of Heroku:
 SECRET_KEY – your Django secret key.
 
-
-DATABASE_URL – automatically added when you provision Heroku Postgres.
-
+DATABASE_URL : it will be automatically added when you provision Heroku Postgres.
 
 6. Deploy the App
 Click Deploy Branch in Heroku.
-
-
 Wait for the build to complete, then click View to open your live site.
 
-AI Implementation
-In my project, AI tools were used throughout the development of Mindful Moments+ to improve efficiency and support problem solving:
-GitHub Copilot – Assisted in generating Django view logic, form handling, and URL configurations. It also suggested cleaner syntax and helped identify possible fixes for errors such as NoReverseMatch.
+# **AI Implementation**
 
+I used AI tools such as GitHub Coploit and ChatGPT to support the development of my project. They assisted in generating Django view logic, form handling and issues I had with URL congifurations AI tools have helped complete this project in due time as time was limited. It helped identify issues and fixes within VS Code without me needing to waste time looking through the web. Therefore, it helped to provide guidance on structruing Django apps, debugging ossues, etc.
 
-ChatGPT (OpenAI) – helped to provide guidance on structuring Django apps, debugging issues, and also ensuring PEP8 compliance.
-
-
-Canva – Used to create the Mindful Moments+ logo with the project colour palette (#393E41, #D3D0CB, #E7E5DF, #44BBA4, #E7BB41). The design process included generating high-resolution PNGs with a transparent background for use in the site header and README.
-
+I used Canva AI to help with creating my logo with my project palette (#393E41, #D3D0CB, #E7E5DF, #44BBA4, #E7BB41).
+The design process included generating high-resolution PNGs with a transparent background for use in the site header and README.
 
 AI was used as a supportive tool, not a replacement for development work. All AI generated code was reviewed, tested, and adapted to fit the specific needs of the project.
 
-Credits
+# **Credits**
+
 Code & Development
-Django Documentation – For guidance on configuring apps, models, and views.
+- Django Documentation – For guidance on configuring apps, models, and views.
+- Bootstrap Documentation – For layout and responsive design help.
+- Code Institute Django Blog Walkthrough was used as a learning reference for authentication setup, CRUD functionality, and deployment steps.
+- Canva was used to create and generate current website design concept for the logo using my project's colour palette.
+- Design of the website was inpsired by my first Mindful Moments project.
 
-
-Bootstrap Documentation – For layout and responsive design help.
-
-
-Code Institute Django Blog Walkthrough – Used as a learning reference for authentication setup, CRUD functionality, and deployment steps.
-
-
-Design & Media
-Canva – For creating initial logo design concepts.
-
-
-AI Image Generation – For producing the final Mindful Moments+ logo in the project colour palette.
-
-
-Background image inspired by the original Mindful Moments project (self-created).
-
-
-Testing & Validation
-W3C Markup Validation Service – For HTML validation.
-
-
-W3C Jigsaw CSS Validator – For CSS validation.
-
-
-PEP8 Online – For checking Python code style compliance.
-
-
-Lighthouse – For testing performance, accessibility, best practices, and SEO.
-
-
-Special Thanks
-Code Institute – For continuous support and the opportunity to study for 16 weeks in the Full Stack Developer Bootcamp.
-
-
-Dillon McCaffrey – My facilitator, for being positive, encouraging, and extremely helpful throughout my journey with Code Institute.
-Credits
-I would like to thank Code Institute for their continuous support and for giving me the opportunity to study for 16 weeks in the Full Stack Developer Bootcamp. A special thanks goes to Dillon McCaffrey, my facilitator, who has been a positive, encouraging, and helpful presence throughout my journey. I am also grateful for the resources and tools that supported my work, including the Django and Bootstrap documentation, the Code Institute Django Blog walkthrough for guidance on authentication and CRUD functionality, and Canva and AI image generation tools for helping me create the final Mindful Moments+ logo in my chosen colour palette.
+I would like to give give a big thank you to **Code Institute** for their continuous support and for giving me the opportunity to study for 16 weeks in the Full Stack Developer Bootcamp. A special thanks goes to **Dillon McCaffrey**, my facilitator, who has been a positive, encouraging, and helpful presence throughout my journey. I am also grateful for the resources and tools that supported my work, including the Django and Bootstrap documentation, the Code Institute Django Blog walkthrough for guidance on authentication and CRUD functionality, and Canva and AI image generation tools for helping me create the final Mindful Moments+ logo in my chosen colour palette.
